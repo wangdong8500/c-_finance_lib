@@ -18,9 +18,6 @@ double Bisection(double target, T the_function,
 	double f_mid = the_function(mid) - target;
 	
 	while(fabs(f_mid)>tolerance){
-
-		cout << mid << "," << f_low << "," << f_mid << "," << f_high <<endl;
-
 		if(f_mid*f_low < 0){ 
 			high = mid;
 			f_high = f_mid;

@@ -32,3 +32,10 @@ vector< vector<double> > ConvergenceTable::GetResultsSoFar() const{
 	}
 	return temp;
 }
+
+void ConvergenceTable::ResetGatherer(){
+	inner->ResetGatherer();
+	table.clear();
+	stopping_point = 2UL;
+	path_done = 0UL;
+}

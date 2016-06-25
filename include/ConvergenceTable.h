@@ -11,6 +11,7 @@ public:
 	virtual StatisticsMC* clone() const;
 	virtual void DumpOneResult(double x);
 	virtual std::vector< std::vector<double> > GetResultsSoFar() const;
+	virtual void ResetGatherer();
 private:
 	Wrapper<StatisticsMC> inner;
 	std::vector< std::vector<double> > table;

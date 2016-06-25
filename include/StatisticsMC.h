@@ -17,6 +17,7 @@ public:
 	// some interface
 	virtual void DumpOneResult(double x) = 0;
 	virtual std::vector< std::vector<double> > GetResultsSoFar() const = 0; 
+	virtual void ResetGatherer() =0;
 private:
 
 };
@@ -29,19 +30,21 @@ public:
 	// interface
 	virtual void DumpOneResult(double x);
 	virtual std::vector< std::vector<double> > GetResultsSoFar() const;
+	virtual void ResetGatherer();
 private:
 	double running_sum;
 	unsigned long path_done;
 };
 
-class StatisticsSTE: public StatisticsMC{
+class StatisticsMeanSTE: public StatisticsMC{
 public:
-	StatisticsSTE():running_sum(0.0), running_squared_sum(0.0), path_done(0UL) {};
-	virtual ~StatisticsSTE(){};
+	StatisticsMeanSTE():running_sum(0.0), running_squared_sum(0.0), path_done(0UL) {};
+	virtual ~StatisticsMeanSTE(){};
 	virtual StatisticsMC* clone() const;
 	// interface
 	virtual void DumpOneResult(double x);
 	virtual std::vector< std::vector<double> > GetResultsSoFar() const;
+	virtual void ResetGatherer();
 private:
 	double running_sum;
 	double running_squared_sum;
@@ -56,9 +59,9 @@ public:
 	virtual StatisticsMC* clone() const;
 	virtual void DumpOneResult(double x);
 	virtual std::vector< std::vector<double> > GetResultsSoFar() const; 
-
+	virtual void ResetGatherer();
 private:
-	unsigned short power_index;
+	const unsigned short power_index;
 	double running_sum;
 	unsigned long path_done;
 };

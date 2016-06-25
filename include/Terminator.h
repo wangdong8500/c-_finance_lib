@@ -12,11 +12,12 @@ public:
 	// interface
 	virtual TerminatorBase* clone() const = 0;
 	virtual bool terminate() = 0; 
+	virtual void reset() = 0;
 private:
 
 };
 
-// use the number of path a criterion for terminating loop
+// use the number of path for terminating loop
 class TerminatorPath: public TerminatorBase{
 public:
 	TerminatorPath(unsigned long max_path_): 
@@ -30,13 +31,17 @@ public:
 		else return false; 
 	} 
 
+	virtual void reset(){
+		path_done = 0UL;
+	}
+
 private:
 	unsigned long path_done;
 	const unsigned long max_path;
 };
 
 // use time to decide whether to terminate the loop
-// btter not to call in each loop. could be slow. 
+// better not to call in each loop. could be slow. 
 class TerminatorTime: public TerminatorBase{
 public:
 	TerminatorTime(double max_time_)
@@ -54,9 +59,13 @@ public:
 		 else
 		 	return false;
 	}
+
+	virtual void reset(){
+		start_time = std::time(NULL);
+	}
 private:
 	std::time_t start_time;
-	double max_time; 
+	const double max_time; 
 };
 
 // comnine two terminators together to mimic the or operation
@@ -71,6 +80,11 @@ public:
 	virtual bool terminate(){
 		if (terminator_1->terminate() or terminator_2->terminate()) return true;
 		else return false;
+	}
+
+	virtual void reset(){
+		terminator_1->reset();
+		terminator_2->reset();
 	}
 
 private:
