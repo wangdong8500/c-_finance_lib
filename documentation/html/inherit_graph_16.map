@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_terminator_base.html" title="TerminatorBase" alt="" coords="5,54,120,79"/>
+<area shape="rect" id="node2" href="$class_terminator_combine.html" title="TerminatorCombine" alt="" coords="168,5,306,30"/>
+<area shape="rect" id="node3" href="$class_terminator_path.html" title="TerminatorPath" alt="" coords="181,54,293,79"/>
+<area shape="rect" id="node4" href="$class_terminator_time.html" title="TerminatorTime" alt="" coords="181,103,294,129"/>
+</map>

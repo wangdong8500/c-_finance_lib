@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_pay_off.html" title="PayOff" alt="" coords="5,54,67,79"/>
+<area shape="rect" id="node2" href="$class_call_pay_off.html" title="CallPayOff" alt="" coords="128,5,213,30"/>
+<area shape="rect" id="node3" href="$class_forward_pay_off.html" title="ForwardPayOff" alt="" coords="115,54,226,79"/>
+<area shape="rect" id="node4" href="$class_put_pay_off.html" title="PutPayOff" alt="" coords="130,103,212,129"/>
+</map>

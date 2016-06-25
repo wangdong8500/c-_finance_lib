@@ -1,0 +1,6 @@
+<map id="StatisticsMC" name="StatisticsMC">
+<area shape="rect" id="node2" href="$class_convergence_table.html" title="ConvergenceTable" alt="" coords="4,81,136,106"/>
+<area shape="rect" id="node3" href="$class_statistics_mean.html" title="StatisticsMean" alt="" coords="161,81,268,106"/>
+<area shape="rect" id="node4" href="$class_statistics_mean_s_t_e.html" title="StatisticsMeanSTE" alt="" coords="293,81,427,106"/>
+<area shape="rect" id="node5" href="$class_statistics_moments.html" title="StatisticsMoments" alt="" coords="451,81,580,106"/>
+</map>

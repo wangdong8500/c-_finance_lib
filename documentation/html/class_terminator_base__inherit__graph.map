@@ -1,0 +1,5 @@
+<map id="TerminatorBase" name="TerminatorBase">
+<area shape="rect" id="node2" href="$class_terminator_combine.html" title="TerminatorCombine" alt="" coords="4,81,141,106"/>
+<area shape="rect" id="node3" href="$class_terminator_path.html" title="TerminatorPath" alt="" coords="167,81,277,106"/>
+<area shape="rect" id="node4" href="$class_terminator_time.html" title="TerminatorTime" alt="" coords="302,81,415,106"/>
+</map>
