@@ -39,6 +39,15 @@ double BlackScholesCallVega( double Spot,
                              double Vol,
                              double Expiry);
 
+double BlackScholesCallGeometricAsian(double spot,
+                                      double strike,
+                                      double r,
+                                      double d,
+                                      double vol,
+                                      double expiry,
+                                      unsigned n_dates
+                                      );
+
 
 #endif
 

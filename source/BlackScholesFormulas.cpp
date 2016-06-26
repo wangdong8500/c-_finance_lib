@@ -13,6 +13,8 @@
 using namespace std;
 #endif
 
+#include <iostream>
+
 double BlackScholesCall( double Spot,
                          double Strike,
                          double r,
@@ -86,6 +88,22 @@ double BlackScholesCallVega( double Spot,
 
 }
 
+// @c Dong Wang, 2016 
+double BlackScholesCallGeometricAsian(double spot,
+                                      double strike,
+                                      double r,
+                                      double d,
+                                      double vol,
+                                      double expiry,
+                                      unsigned n
+                                      ){
+    double m = double(n);
+    double new_vol = sqrt((m+1)*(2*m+1)/(6*m*m))*vol;
+    double new_spot = spot * exp((r-d-0.5*vol*vol)*expiry*(m+1)/(2*m) - (r-d-0.5*new_vol*new_vol)*expiry);
+
+    return BlackScholesCall(new_spot,strike,r,d,new_vol,expiry);
+
+}
 /*
  *
  * Copyright (c) 2002

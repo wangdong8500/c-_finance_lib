@@ -1,6 +1,7 @@
 /*
     uses source files 
-    Arrays.cpp,  
+    Arrays.cpp,
+    BlackScholesFormulas.cpp  
     ConvergenceTable.cpp, 
     ExoticEngineBS.cpp
     ExoticEngine.cpp
@@ -10,6 +11,7 @@
     ParkMiller.cpp,
     PathDependent.cpp
     PathDependentAsian.cpp
+    PathDependentGeometricAsian.cpp
     PayOff.cpp
     Random2.cpp,
     Terminator.cpp
@@ -24,6 +26,8 @@ using namespace std;
 #include <AntiThetic.h>
 #include <PathDependentAsian.h>
 #include <ExoticEngineBS.h>
+#include <BlackScholesFormulas.h>
+#include <cmath>
 
 int main()
 {
@@ -75,8 +79,6 @@ int main()
     ParameterConstant r_param(r);
     ParameterConstant d_param(d);
 
-    PathDependentAsian the_option(times, expiry, the_pay_off);
-
     StatisticsMean gatherer;
     ConvergenceTable convergence_gatherer(gatherer);
 
@@ -84,17 +86,43 @@ int main()
     
     //Antithetic generator_antithetic(generator);
 
-    ExoticEngineBS the_engine(r_param, d_param, vol_param, the_option, generator, spot);
-
     TerminatorPath terminator_path(number_of_paths);
     TerminatorTime terminator_time(10.);
     TerminatorCombine terminator(terminator_path,terminator_time);
 
-    the_engine.DoSimulation(convergence_gatherer, terminator);
+    /*************************Arithmetic Asian call option***************************************/
+    {
 
+    PathDependentAsian the_option(times, expiry, the_pay_off);
+    ExoticEngineBS the_engine(r_param, d_param, vol_param, the_option, generator, spot);
+    the_engine.DoSimulation(convergence_gatherer, terminator);
     vector<vector<double> > results =convergence_gatherer.GetResultsSoFar();
 
-	cout <<"\nFor the Asian call option the convergence table is \n";
+	cout <<"\nFor the Arithmetic Asian call option the convergence table is \n";
+    int width = 15;
+    cout << setw(width) << "Price" << setw(width) << "No. of Path" << endl;  
+    
+    for (unsigned long i=0; i < results.size(); i++)
+    {
+        for (unsigned long j=0; j < results[i].size(); j++)
+            cout << setw(width) << results[i][j];
+
+        cout << "\n";
+    } 
+
+    }
+    /*************************Geometric Asian call option***************************************/
+    {
+
+    generator.Reset();
+    PathDependentGeometricAsian the_option(times, expiry, the_pay_off);
+    ExoticEngineBS the_engine(r_param,d_param, vol_param, the_option, generator, spot);
+    convergence_gatherer.ResetGatherer();
+    terminator.reset();
+    the_engine.DoSimulation(convergence_gatherer, terminator);
+    vector<vector<double> > results = convergence_gatherer.GetResultsSoFar();
+
+    cout <<"\nFor the Geometric Asian call option the convergence table is \n";
     int width = 15;
     cout << setw(width) << "Price" << setw(width) << "No. of Path" << endl;  
     
@@ -105,6 +133,17 @@ int main()
 
         cout << "\n";
     }
+
+    cout << "The corresponding analytical Geometric Asian Option price is: ";
+    double BS_price = BlackScholesCallGeometricAsian(spot,strike,r,d,vol,expiry,number_of_dates);
+    cout << BS_price <<endl;
+
+    cout << "In the continous limit, the Geometric Asian Option price is: ";
+    double BS_price_limit = BlackScholesCall(spot*exp(-1./12.*vol*vol*expiry),strike,r,d,vol*sqrt(2./3.),expiry/2.);
+    cout << BS_price_limit <<endl;
+
+    }
+
 
 	return 0;
 
