@@ -9,3 +9,9 @@ g++ TreeMain.cpp ../source/Arrays.cpp ../source/BinomialTree.cpp ../source/Black
 
 ImpliedVol.cpp
 g++ ImpliedVol.cpp ../source/BlackScholesFormulas.cpp ../source/BSCallClass.cpp ../source/BSCallTwo.cpp ../source/Normals.cpp -I ../include -o ImpliedVol
+
+Barrier_main.cpp
+g++ Barrier_main.cpp ../source/Arrays.cpp ../source/ConvergenceTable.cpp ../source/ExoticEngine.cpp ../source/ExoticEngineBS.cpp ../source/StatisticsMC.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/ParkMiller.cpp ../source/PathDependent.cpp ../source/PathDependentBarrier.cpp  ../source/PayOff.cpp ../source/Random2.cpp ../source/Terminator.cpp ../source/BlackScholesFormulas.cpp -I ../include -o Barrier_main
+
+Lookback_Main.cpp
+g++ Lookback_Main.cpp ../source/Arrays.cpp ../source/ConvergenceTable.cpp ../source/ExoticEngine.cpp ../source/ExoticEngineBS.cpp ../source/StatisticsMC.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/ParkMiller.cpp ../source/PathDependent.cpp ../source/PathDependentLookback.cpp  ../source/PayOff.cpp ../source/Random2.cpp ../source/Terminator.cpp ../source/BlackScholesFormulas.cpp -I ../include -o Lookback_Main
