@@ -1,6 +1,8 @@
 #ifndef PAYOFF_H
 #define PAYOFF_H
 
+#include <memory>
+
 // PayOff base class
 class PayOff{
 public:
@@ -10,27 +12,11 @@ public:
 
 	virtual double operator()(double spot) const = 0;
 
-	virtual PayOff* clone() const = 0;
+	virtual std::unique_ptr<PayOff> clone() const = 0;
 
 private:
 
 };
-
-// handle the memory management when cloning a PayOff object
-class PayOffBridge{
-public:
-	PayOffBridge(const PayOffBridge& original);
-	PayOffBridge(const PayOff& innerPayOff);
-	~PayOffBridge();
-	PayOffBridge& operator= (const PayOffBridge& other);
-	inline double operator() (double spot) const;
-private:
-	PayOff* PayOffPtr;
-};
-
-inline double PayOffBridge::operator() (double spot) const{
-	return PayOffPtr -> operator() (spot);
-}
 
 /************************************************************/
 
@@ -41,7 +27,7 @@ public:
 
 	virtual double operator()(double spot) const;
 
-	virtual PayOff* clone() const;
+	virtual std::unique_ptr<PayOff> clone() const;
 
 	virtual ~CallPayOff(){};
 
@@ -55,7 +41,7 @@ public:
 	PutPayOff(double strike_);
 	virtual ~PutPayOff(){};
 	virtual double operator() (double spot) const;
-	virtual PayOff* clone() const;
+	virtual std::unique_ptr<PayOff> clone() const;
 private:
 	double strike;
 };
@@ -66,7 +52,7 @@ public:
 	ForwardPayOff(double strike_);
 	virtual ~ForwardPayOff(){};
 	virtual double operator() (double spot) const;
-	virtual PayOff* clone() const;
+	virtual std::unique_ptr<PayOff> clone() const;
 private:
 	double strike;
 

@@ -2,16 +2,17 @@
 #define VANILLAOPTION_H
 
 #include <PayOff.h>
+#include <memory>
 
 class VanillaOption{
 
 public:
-	VanillaOption(const PayOffBridge& pay_off_, double expiry_);
+	VanillaOption(const PayOff& pay_off_, double expiry_);
 	double get_expiry() const;
 	double option_pay_off(double spot) const;
 
 private:
-	PayOffBridge pay_off;
+	std::unique_ptr<PayOff> pay_off_ptr;
 	double expiry;
 };
 

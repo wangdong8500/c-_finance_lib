@@ -1,17 +1,17 @@
 PathDependent_main.cpp
-g++ PathDependent_main.cpp ../source/Arrays.cpp ../source/ConvergenceTable.cpp ../source/ExoticEngine.cpp ../source/ExoticEngineBS.cpp ../source/StatisticsMC.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/ParkMiller.cpp ../source/PathDependent.cpp ../source/PathDependentAsian.cpp ../source/PathDependentGeometricAsian.cpp ../source/PayOff.cpp ../source/Random2.cpp ../source/Terminator.cpp ../source/BlackScholesFormulas.cpp -I ../include -o PathDependent_main
+g++ PathDependent_main.cpp ../source/Arrays.cpp ../source/ConvergenceTable.cpp ../source/ExoticEngine.cpp ../source/ExoticEngineBS.cpp ../source/StatisticsMC.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/ParkMiller.cpp ../source/PathDependent.cpp ../source/PathDependentAsian.cpp ../source/PathDependentGeometricAsian.cpp ../source/PayOff.cpp ../source/Random2.cpp ../source/Terminator.cpp ../source/BlackScholesFormulas.cpp -I ../include -std=c++11 -o PathDependent_main
 
 Vanilla_main.cpp
-g++ Vanilla_main.cpp ../source/Arrays.cpp ../source/BlackScholesFormulas.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/ParkMiller.cpp ../source/PayOff.cpp ../source/Random2.cpp ../source/SimpleMC.cpp ../source/StatisticsMC.cpp ../source/Terminator.cpp ../source/VanillaOption.cpp -I ../include -o Vanilla_main
+g++ Vanilla_main.cpp ../source/Arrays.cpp ../source/BlackScholesFormulas.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/ParkMiller.cpp ../source/PayOff.cpp ../source/Random2.cpp ../source/SimpleMC.cpp ../source/StatisticsMC.cpp ../source/Terminator.cpp ../source/VanillaOption.cpp -I ../include -std=c++11 -o Vanilla_main
 
 TreeMain.cpp
-g++ TreeMain.cpp ../source/Arrays.cpp ../source/BinomialTree.cpp ../source/BlackScholesFormulas.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/PayOff.cpp ../source/TreeAmerican.cpp ../source/TreeEuropean.cpp -I ../include -o TreeMain
+g++ TreeMain.cpp ../source/Arrays.cpp ../source/BinomialTree.cpp ../source/BlackScholesFormulas.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/PayOff.cpp ../source/TreeAmerican.cpp ../source/TreeEuropean.cpp -I ../include -std=c++11 -o TreeMain
 
 ImpliedVol.cpp
-g++ ImpliedVol.cpp ../source/BlackScholesFormulas.cpp ../source/BSCallClass.cpp ../source/BSCallTwo.cpp ../source/Normals.cpp -I ../include -o ImpliedVol
+g++ ImpliedVol.cpp ../source/BlackScholesFormulas.cpp ../source/BSCallClass.cpp ../source/BSCallTwo.cpp ../source/Normals.cpp -I ../include -std=c++11 -o ImpliedVol
 
 Barrier_main.cpp
-g++ Barrier_main.cpp ../source/Arrays.cpp ../source/ConvergenceTable.cpp ../source/ExoticEngine.cpp ../source/ExoticEngineBS.cpp ../source/StatisticsMC.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/ParkMiller.cpp ../source/PathDependent.cpp ../source/PathDependentBarrier.cpp  ../source/PayOff.cpp ../source/Random2.cpp ../source/Terminator.cpp ../source/BlackScholesFormulas.cpp -I ../include -o Barrier_main
+g++ Barrier_main.cpp ../source/Arrays.cpp ../source/ConvergenceTable.cpp ../source/ExoticEngine.cpp ../source/ExoticEngineBS.cpp ../source/StatisticsMC.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/ParkMiller.cpp ../source/PathDependent.cpp ../source/PathDependentBarrier.cpp  ../source/PayOff.cpp ../source/Random2.cpp ../source/Terminator.cpp ../source/BlackScholesFormulas.cpp -I ../include -std=c++11 -o Barrier_main
 
 Lookback_Main.cpp
-g++ Lookback_Main.cpp ../source/Arrays.cpp ../source/ConvergenceTable.cpp ../source/ExoticEngine.cpp ../source/ExoticEngineBS.cpp ../source/StatisticsMC.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/ParkMiller.cpp ../source/PathDependent.cpp ../source/PathDependentLookback.cpp  ../source/PayOff.cpp ../source/Random2.cpp ../source/Terminator.cpp ../source/BlackScholesFormulas.cpp -I ../include -o Lookback_Main
+g++ Lookback_Main.cpp ../source/Arrays.cpp ../source/ConvergenceTable.cpp ../source/ExoticEngine.cpp ../source/ExoticEngineBS.cpp ../source/StatisticsMC.cpp ../source/Normals.cpp ../source/Parameter.cpp ../source/ParkMiller.cpp ../source/PathDependent.cpp ../source/PathDependentLookback.cpp  ../source/PayOff.cpp ../source/Random2.cpp ../source/Terminator.cpp ../source/BlackScholesFormulas.cpp -I ../include -std=c++11 -o Lookback_Main
